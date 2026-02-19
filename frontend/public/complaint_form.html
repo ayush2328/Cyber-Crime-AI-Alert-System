@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Complaint - CyberGuard AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Same sidebar as dashboard -->
+        <aside class="sidebar">
+            <!-- ... sidebar content same as dashboard ... -->
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <!-- ... header same as dashboard ... -->
+            </header>
+
+            <div class="dashboard-content">
+                <div class="complaint-form-container">
+                    <div class="form-header">
+                        <h1>File a Cyber Crime Complaint</h1>
+                        <p>Our AI will analyze and prioritize your complaint automatically</p>
+                    </div>
+
+                    <form id="complaintForm" class="complaint-form">
+                        <!-- AI Analysis Indicator -->
+                        <div class="ai-analysis-badge">
+                            <i class="fas fa-robot"></i>
+                            <span>AI-Powered Analysis Active</span>
+                        </div>
+
+                        <!-- Complaint Type -->
+                        <div class="form-section">
+                            <h3>Complaint Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="complaintType">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Type of Cyber Crime <span class="required">*</span>
+                                </label>
+                                <select id="complaintType" required>
+                                    <option value="">Select crime type (AI will verify)</option>
+                                    <option value="phishing">Phishing Attack</option>
+                                    <option value="fraud">Online Fraud</option>
+                                    <option value="hacking">Account Hacking</option>
+                                    <option value="otp">OTP Scam</option>
+                                    <option value="identity">Identity Theft</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">
+                                    <i class="fas fa-align-left"></i>
+                                    Detailed Description <span class="required">*</span>
+                                </label>
+                                <textarea id="description" rows="5" 
+                                    placeholder="Please describe the incident in detail... (AI will analyze this text for classification)"
+                                    required></textarea>
+                                <div class="char-count">
+                                    <span id="charCount">0</span>/1000 characters
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="incidentDate">
+                                        <i class="fas fa-calendar"></i>
+                                        Date of Incident <span class="required">*</span>
+                                    </label>
+                                    <input type="date" id="incidentDate" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lossAmount">
+                                        <i class="fas fa-rupee-sign"></i>
+                                        Financial Loss (₹)
+                                    </label>
+                                    <input type="number" id="lossAmount" placeholder="Enter amount if any">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Details -->
+                        <div class="form-section">
+                            <h3>Location Details</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="state">State <span class="required">*</span></label>
+                                    <select id="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="delhi">Delhi</option>
+                                        <option value="maharashtra">Maharashtra</option>
+                                        <option value="karnataka">Karnataka</option>
+                                        <option value="tamilnadu">Tamil Nadu</option>
+                                        <!-- Add all states -->
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city">City <span class="required">*</span></label>
+                                    <input type="text" id="city" placeholder="Enter city" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Full Address</label>
+                                <textarea id="address" rows="2" placeholder="Enter your complete address"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pincode">Pincode</label>
+                                <input type="text" id="pincode" placeholder="Enter pincode">
+                            </div>
+                        </div>
+
+                        <!-- Suspect Information (Optional) -->
+                        <div class="form-section">
+                            <h3>Suspect Information <span class="optional">(Optional)</span></h3>
+                            
+                            <div class="form-group">
+                                <label for="suspectName">Suspect Name/Username</label>
+                                <input type="text" id="suspectName" placeholder="If known">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="suspectPhone">Phone Number</label>
+                                <input type="tel" id="suspectPhone" placeholder="Suspect's phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="suspectEmail">Email Address</label>
+                                <input type="email" id="suspectEmail" placeholder="Suspect's email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="suspectBank">Bank Account Details</label>
+                                <input type="text" id="suspectBank" placeholder="Account number/IFSC if known">
+                            </div>
+                        </div>
+
+                        <!-- Digital Evidence Upload -->
+                        <div class="form-section">
+                            <h3>
+                                Digital Evidence 
+                                <span class="evidence-badge">
+                                    <i class="fas fa-shield"></i> Secured with Hash
+                                </span>
+                            </h3>
+                            
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Drag & Drop files here</h4>
+                                <p>or</p>
+                                <button type="button" class="btn btn-outline" onclick="document.getElementById('fileInput').click()">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="fileInput" multiple style="display: none;">
+                                <p class="upload-hint">Supported: Images, PDFs, Screenshots (Max 10MB each)</p>
+                            </div>
+
+                            <div class="file-list" id="fileList">
+                                <!-- Uploaded files will appear here -->
+                            </div>
+
+                            <div class="evidence-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>All evidence is encrypted and hash-protected for integrity</span>
+                            </div>
+                        </div>
+
+                        <!-- Declaration -->
+                        <div class="form-section">
+                            <label class="checkbox">
+                                <input type="checkbox" required>
+                                I hereby declare that the information provided is true and correct to the best of my knowledge. I understand that providing false information is punishable under law.
+                            </label>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="window.history.back()">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="submitComplaint">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Complaint
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- AI Analysis Preview (Shows after submission) -->
+                    <div class="ai-preview" id="aiPreview" style="display: none;">
+                        <h3><i class="fas fa-robot"></i> AI Analysis Result</h3>
+                        <div class="ai-result">
+                            <div class="result-item">
+                                <span class="label">Detected Crime Type:</span>
+                                <span class="value" id="aiCrimeType">Online Fraud</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Priority Assigned:</span>
+                                <span class="value priority-high" id="aiPriority">HIGH</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Confidence Score:</span>
+                                <span class="value" id="aiConfidence">98%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api_client.js"></script>
+</body>
+</html>

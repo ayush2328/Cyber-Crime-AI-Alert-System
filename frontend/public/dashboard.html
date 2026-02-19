@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CyberGuard AI</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>CyberGuard</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="complaint_form.html">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>New Complaint</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#my-complaints">
+                            <i class="fas fa-list"></i>
+                            <span>My Complaints</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#evidence">
+                            <i class="fas fa-folder"></i>
+                            <span>Evidence</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tracking">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Track Case</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li class="logout">
+                        <a href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="menu-toggle-sidebar">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8F81&color=fff" alt="Profile">
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card animate-scale">
+                        <div class="stat-icon" style="background: rgba(13, 143, 129, 0.1);">
+                            <i class="fas fa-file-alt" style="color: #0D8F81;"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Complaints</h3>
+                            <p class="stat-number">8</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 2 this month
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card animate-scale">
+                        <div class="stat-icon" style="background: rgba(255, 159, 67, 0.1);">
+                            <i class="fas fa-clock" style="color: #FF9F43;"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>In Progress</h3>
+                            <p class="stat-number">3</p>
+                            <span class="stat-change">
+                                <i class="fas fa-clock"></i> Under review
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card animate-scale">
+                        <div class="stat-icon" style="background: rgba(40, 199, 111, 0.1);">
+                            <i class="fas fa-check-circle" style="color: #28C76F;"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Resolved</h3>
+                            <p class="stat-number">5</p>
+                            <span class="stat-change positive">
+                                <i class="fas fa-check"></i> 62% resolved
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card animate-scale">
+                        <div class="stat-icon" style="background: rgba(234, 84, 85, 0.1);">
+                            <i class="fas fa-exclamation-triangle" style="color: #EA5455;"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>High Priority</h3>
+                            <p class="stat-number">2</p>
+                            <span class="stat-change negative">
+                                <i class="fas fa-exclamation"></i> Urgent
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Complaints -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recent Complaints</h2>
+                        <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="complaints-list">
+                            <div class="complaint-item">
+                                <div class="complaint-status status-high">HIGH</div>
+                                <div class="complaint-info">
+                                    <h4>Online Banking Fraud</h4>
+                                    <p>Complaint #CC2024001 • Filed on 15 Feb 2024</p>
+                                </div>
+                                <div class="complaint-actions">
+                                    <span class="badge badge-warning">In Progress</span>
+                                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="complaint-item">
+                                <div class="complaint-status status-medium">MEDIUM</div>
+                                <div class="complaint-info">
+                                    <h4>Phishing Attack</h4>
+                                    <p>Complaint #CC2024002 • Filed on 14 Feb 2024</p>
+                                </div>
+                                <div class="complaint-actions">
+                                    <span class="badge badge-success">Resolved</span>
+                                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="complaint-item">
+                                <div class="complaint-status status-low">LOW</div>
+                                <div class="complaint-info">
+                                    <h4>Social Media Account Hacked</h4>
+                                    <p>Complaint #CC2024003 • Filed on 13 Feb 2024</p>
+                                </div>
+                                <div class="complaint-actions">
+                                    <span class="badge badge-info">Assigned</span>
+                                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="complaint-item">
+                                <div class="complaint-status status-high">HIGH</div>
+                                <div class="complaint-info">
+                                    <h4>OTP Scam - ₹50,000 Loss</h4>
+                                    <p>Complaint #CC2024004 • Filed on 12 Feb 2024</p>
+                                </div>
+                                <div class="complaint-actions">
+                                    <span class="badge badge-danger">Escalated</span>
+                                    <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Tracking & AI Insights -->
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Track Your Case</h2>
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="tracking-form">
+                                <input type="text" placeholder="Enter Case ID (e.g., CC2024001)">
+                                <button class="btn btn-primary">Track</button>
+                            </div>
+                            <div class="tracking-tips">
+                                <p><i class="fas fa-lightbulb"></i> You'll receive SMS updates on your case status</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>AI Insights</h2>
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="insights">
+                                <div class="insight-item">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>Most Common Crime</h4>
+                                        <p>Online Fraud (45% of cases)</p>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>Average Resolution Time</h4>
+                                        <p>3.5 days</p>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-icon">
+                                        <i class="fas fa-shield"></i>
+                                    </div>
+                                    <div class="insight-content">
+                                        <h4>Safety Tip</h4>
+                                        <p>Never share OTP with anyone</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api_client.js"></script>
+</body>
+</html>
